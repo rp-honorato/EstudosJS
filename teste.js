@@ -22,7 +22,16 @@
 
 //Async function
 async function getData() {
-    const response = await fetch("https://reqres.in/api/users/")
+    const response = await fetch("https://reqres.in/api/users/", {
+            method: "POST",
+            headers: {
+            "Content-Type" : 'application/json'
+            },
+            body: JSON.stringify({
+            name: "Pedro Honorato",
+            age: "28"
+        })
+    })
     console.log(response.headers);
 
     const data = await response.json();
